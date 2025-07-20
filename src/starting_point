@@ -1,0 +1,20 @@
+Testing on TPC benchmark tables with table size of atleast million rows
+	
+1. If the laptop doesn't support CUDA, you can use Google Colab to connect the local runtime of Postgres
+2. For P5: GPUString Equi-join: Regarding the dataset to test, we could start with the following:
+    This repo has a list of English words -- https://github.com/dwyl/english-words (we can start with words_alpha.txt which as approximately 370K words)
+    Given we want a database of size n, what can be done is:
+        Sample n words from the list to create a set S.
+	    Create Table R(rid, rkey), where rid goes from 1 to n, and rkey are the words in S
+	    Let S’ = random permutation (S)
+	    Create Table S(sid, skey), where sid foes from 1 to n, and skeys are the words in S’
+        We can then run the join between R and S.
+    You can start with small n to test your approach, and then for evaluation, start with n = 100k, and keep increasing it. After you have it running for this dataset collection, we can move to some larger dataset.  
+
+
+
+Meeting time is 11-12 on Tuesdays or can connect with him through Teams.
+
+Mail: harish.doraiswamy@microsoft.com
+
+GitHub - dwyl/english-words: :memo: A text file containing 479k English words for all your dictionary/word-based projects e.g: auto-completion / autosuggestion:memo: A text file containing 479k English words for all your dictionary/word-based projects e.g: auto-completion / autosuggestion - GitHub - dwyl/english-words: :memo: A text file containing 479k ...github.com<https://teams.microsoft.com/l/message/19:odZUO52NoC-yJ2tfk5iE94oB3yTXyytfexVqvI6qCrY1@thread.tacv2/1698664256754?tenantId=6f15cd97-f6a7-41e3-b2c5-ad4193976476&amp;groupId=b1df2ae3-c62f-4060-bbc4-5ac3d756ec2c&amp;parentMessageId=1698664256754&amp;teamName=DBMS Aug 2023&amp;channelName=General&amp;createdTime=1698664256754&amp;allowXTenantAccess=false>
